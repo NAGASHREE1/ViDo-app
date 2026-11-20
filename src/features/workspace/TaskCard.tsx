@@ -1,5 +1,6 @@
 import React from 'react';
 import { SampleTask } from '../../data/sampleTasks';
+import { formatTimeLabel } from '../../data/timeFormat';
 import { Badge, Card } from '../../components/ui';
 import { Clock, AlertCircle, CheckCircle2 } from 'lucide-react';
 
@@ -87,7 +88,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task, onClick }) => {
           ) : isDueToday ? (
             <span className="text-[var(--accent)] font-semibold flex items-center gap-1">
               <Clock className="w-3.5 h-3.5 shrink-0" />
-              Today {task.dueTime ? `at ${task.dueTime}` : ''}
+              Today {task.dueTime ? `at ${formatTimeLabel(task.dueTime)}` : ''}
             </span>
           ) : isCompleted ? (
             <span className="text-[var(--green)] flex items-center gap-1">

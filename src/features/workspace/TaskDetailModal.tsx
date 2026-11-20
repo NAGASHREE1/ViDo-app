@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { SampleTask } from '../../data/sampleTasks';
+import { formatTimeLabel } from '../../data/timeFormat';
 import { Badge, Button } from '../../components/ui';
 import { X, Clock, Calendar, CheckCircle2, AlertCircle, History, Tag } from 'lucide-react';
 
@@ -131,7 +132,7 @@ export const TaskDetailModal: React.FC<TaskDetailModalProps> = ({
             </span>
             <span className="font-semibold text-[var(--ink)] flex items-center gap-1 font-mono">
               <Clock className="w-3.5 h-3.5 text-[var(--muted)]" />
-              {task.dueTime || '23:59 (End of day)'}
+              {task.dueTime ? formatTimeLabel(task.dueTime) : 'End of day'}
             </span>
           </div>
 
